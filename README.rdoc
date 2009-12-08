@@ -1,6 +1,11 @@
 = filebin
 
-Description goes here.
+filebin is a CLI to http://filebin.ca
+    Example: filebin -f <pic.png>
+
+Options:
+    -f, --file <file>                Path to file
+    -h, --help                       Show this message
 
 == Copyright
 
