@@ -21,7 +21,7 @@
 
 require 'rubygems'
 require 'optparse'
-require 'lib/filebin'
+require 'filebin'
 
 options = {}
 
