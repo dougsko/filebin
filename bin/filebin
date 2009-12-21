@@ -36,6 +36,11 @@ opts = OptionParser.new do |opts|
         options["path"] = file
     end
 
+    options["short"] = false
+    opts.on("-s", "--short", "Return a shortend URL") do |short|
+        options["short"] = true
+    end
+
     opts.on_tail("-h", "--help", "Show this message") do
         puts opts
         exit
@@ -44,5 +49,12 @@ end
 
 opts.parse(ARGV)
 
-fbin = Filebin.new(options)
-puts fbin.link
+if options["short"]
+    options.delete("short")
+    fbin = Filebin.new(options)
+    puts fbin.short_link
+else
+    options.delete("short")
+    fbin = Filebin.new(options)
+    puts fbin.link
+end

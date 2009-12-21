@@ -5,6 +5,7 @@
 
 require 'rubygems'
 require 'httpclient'
+require 'net/http'
 require 'hpricot'
 
 class Filebin
@@ -35,4 +36,14 @@ class Filebin
         doc.inner_html.match(/file is available at (.*)\n/)
         @link = $1
     end
+
+    def short_link
+        headers = {'Content-Type' => 'text/xml'}    
+        xml = "<link><website_url>#{@link}</website_url></link>"
+        res = Net::HTTP.start('rubyurl.com') do |http|
+            http.post("/api/links", xml, headers)
+        end
+        doc = Hpricot(res.body)
+        doc.at('/permalink').inner_html
+    end 
 end
