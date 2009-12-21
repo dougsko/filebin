@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{filebin}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dougsko"]
-  s.date = %q{2009-12-08}
+  s.date = %q{2009-12-20}
   s.default_executable = %q{filebin}
   s.description = %q{Command line interface to filebin.ca}
   s.email = %q{dougtko@gmail.com}
@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/dougsko/filebin}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["/bin", "/lib"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Command line interface to filebin.ca}
   s.test_files = [
     "spec/filebin_spec.rb",
