@@ -9,7 +9,6 @@ require 'net/http'
 require 'hpricot'
 
 class Filebin
-    attr_reader :link
     # This method takes a hash containing the variables in the POST
     # request.
     #
@@ -37,6 +36,12 @@ class Filebin
         @link = $1
     end
 
+    # Returns the link to the uploaded file.
+    def link
+        @link
+    end
+
+    # Returns a shortened link to the uploaded file.
     def short_link
         headers = {'Content-Type' => 'text/xml'}    
         xml = "<link><website_url>#{@link}</website_url></link>"
