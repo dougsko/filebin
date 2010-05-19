@@ -7,6 +7,7 @@ require 'rubygems'
 require 'httpclient'
 require 'net/http'
 require 'hpricot'
+require 'urlshort'
 
 class Filebin
     # This method takes a hash containing the variables in the POST
@@ -43,8 +44,7 @@ class Filebin
 
     # Returns a shortened link to the uploaded file.
     def short_link
-        clnt = HTTPClient.new
-        clnt.get('http://is.gd/api.php', {:longurl => @link} ).content
+        Isgd.new.short @link
     end
 
 end
