@@ -44,9 +44,7 @@ class Filebin
     # Returns a shortened link to the uploaded file.
     def short_link
         clnt = HTTPClient.new
-        res = clnt.get('http://is.gd/api.php', {:longurl => @link} ).content
-        doc = Hpricot(res)
-        doc.html
+        clnt.get('http://is.gd/api.php', {:longurl => @link} ).content
     end
 
 end
