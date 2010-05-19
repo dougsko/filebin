@@ -8,6 +8,6 @@ describe "Filebin" do
 
     it "returns a shortened verison of the link" do
         fbin = Filebin.new("path" => __FILE__)
-        fbin.short_link.should match(/rubyurl.com\/\w+/)
+        fbin.short_link.should match(/is.gd\/\w+/)
     end
 end
