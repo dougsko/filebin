@@ -43,12 +43,10 @@ class Filebin
 
     # Returns a shortened link to the uploaded file.
     def short_link
-        headers = {'Content-Type' => 'text/xml'}    
-        xml = "<link><website_url>#{@link}</website_url></link>"
-        res = Net::HTTP.start('rubyurl.com') do |http|
-            http.post("/api/links", xml, headers)
-        end
-        doc = Hpricot(res.body)
-        doc.at('/permalink').inner_html
-    end 
+        clnt = HTTPClient.new
+        res = clnt.get('http://is.gd/api.php', {:longurl => @link} ).content
+        doc = Hpricot(res)
+        doc.html
+    end
+
 end
