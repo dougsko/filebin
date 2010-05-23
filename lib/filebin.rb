@@ -10,6 +10,7 @@ require 'hpricot'
 require 'urlshort'
 
 class Filebin
+    include UrlShort
     # This method takes a hash containing the variables in the POST
     # request.
     #
@@ -44,7 +45,7 @@ class Filebin
 
     # Returns a shortened link to the uploaded file.
     def short_link
-        Isgd.new.short @link
+        UrlShort::IsGd.shorten @link
     end
 
 end
